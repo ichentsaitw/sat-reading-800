@@ -506,31 +506,29 @@
     .err-typeC { background: #fdf4ff; } .err-typeC .tag { background: #e9d5ff; color: #7c3aed; }
     .err-typeD { background: #f0fdf4; } .err-typeD .tag { background: #bbf7d0; color: #15803d; }
 
-    .sheet-template {
-      background: white;
-      border-radius: 14px;
-      border: 1px solid var(--border);
-      overflow: hidden;
+    /* ── AI COACH ── */
+    .ai-coach-intro { font-size:0.9rem; color:var(--text-muted); margin-bottom:20px; line-height:1.6; }
+    .ai-flow {
+      display:flex; align-items:center; gap:10px; flex-wrap:wrap; justify-content:center;
+      background:var(--blue-light); border-radius:12px; padding:20px 24px; margin-bottom:20px;
     }
-    .sheet-template table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.82rem;
+    .ai-flow-step { text-align:center; flex:1; min-width:80px; }
+    .ai-flow-icon { font-size:1.8rem; margin-bottom:6px; }
+    .ai-flow-label { font-size:0.85rem; font-weight:700; color:var(--blue-dark); }
+    .ai-flow-sub { font-size:0.72rem; color:var(--text-muted); margin-top:2px; line-height:1.4; }
+    .ai-flow-arrow { font-size:1.3rem; color:var(--blue-accent); flex-shrink:0; }
+    .ai-prompts { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px; }
+    @media (max-width:680px) { .ai-prompts { grid-template-columns:1fr; } }
+    .ai-prompt-card { background:white; border:1px solid var(--border); border-radius:10px; overflow:hidden; }
+    .ai-prompt-tag { background:var(--blue-dark); color:white; padding:8px 14px; font-size:0.82rem; font-weight:700; }
+    .ai-prompt-body { padding:12px 14px; }
+    .ai-prompt-label { font-size:0.8rem; color:var(--text-muted); margin-bottom:8px; }
+    .ai-prompt-code {
+      background:var(--bg); border:1px solid var(--border); border-radius:6px;
+      padding:10px 12px; font-size:0.74rem; color:var(--text);
+      font-family:monospace; white-space:pre-wrap; line-height:1.65; margin:0;
     }
-    .sheet-template th {
-      background: var(--blue-dark);
-      color: white;
-      padding: 10px 14px;
-      text-align: left;
-      font-weight: 600;
-    }
-    .sheet-template td {
-      padding: 10px 14px;
-      border-bottom: 1px solid var(--border);
-      color: var(--text-muted);
-    }
-    .sheet-template tr:last-child td { border-bottom: none; }
-    .sheet-template tr:nth-child(even) td { background: var(--bg); }
+    .ai-coach-tip { font-size:0.85rem; color:var(--text-muted); background:var(--blue-light); border-radius:8px; padding:12px 16px; margin-bottom:24px; }
 
     .spaced-rep {
       display: flex;
@@ -753,9 +751,13 @@
     body.dark .err-type h4 { color: #e2e8f0; }
     body.dark .err-type ul li { color: #94a3b8; }
     body.dark .err-type ul li::before { color: #94a3b8; }
-    body.dark .sheet-template { background: #1e293b; border-color: #334155; }
-    body.dark .sheet-template td { color: #94a3b8; border-bottom-color: #334155; }
-    body.dark .sheet-template tr:nth-child(even) td { background: #273549; }
+    body.dark .ai-flow { background: #1e3a5f; }
+    body.dark .ai-flow-label { color: #93c5fd; }
+    body.dark .ai-flow-sub { color: #94a3b8; }
+    body.dark .ai-prompt-card { background: #1e293b; border-color: #334155; }
+    body.dark .ai-prompt-tag { background: #1d4ed8; }
+    body.dark .ai-prompt-code { background: #0f172a; border-color: #334155; color: #cbd5e1; }
+    body.dark .ai-coach-tip { background: #1e3a5f; color: #94a3b8; }
     body.dark .spaced-rep { border-color: #334155; background: #1e293b; }
     body.dark .rep-step { border-right-color: #334155; }
     body.dark .rep-step .desc { color: #94a3b8; }
@@ -1290,29 +1292,74 @@
       </div>
     </div>
 
-    <h3 style="font-size:1rem;font-weight:700;margin-bottom:12px;">Google Sheets 錯題模板欄位</h3>
-    <div class="sheet-template">
-      <table>
-        <thead>
-          <tr>
-            <th>欄位</th>
-            <th>填寫說明</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>📅 日期</td><td>練習日期</td></tr>
-          <tr><td>📚 來源</td><td>Official Test 1、Khan Academy Set 3、Erica Meltzer Ch.5…</td></tr>
-          <tr><td>🔢 題號</td><td>第幾題</td></tr>
-          <tr><td>📌 題型</td><td>詞彙 / 推論 / 文章目的 / 證據 / Cross-Text…</td></tr>
-          <tr><td>❌ 我的答案</td><td>我選了什麼 + 當時為什麼這樣想</td></tr>
-          <tr><td>✅ 正確答案</td><td>正確選項是什麼</td></tr>
-          <tr><td>🔍 錯誤類型</td><td>A / B / C / D 類（見上方分類）</td></tr>
-          <tr><td>⚠ 陷阱型</td><td>哪種陷阱（極端語言 / 超出範圍 / 反向…）</td></tr>
-          <tr><td>💡 教訓</td><td>下次遇到類似題要做什麼？</td></tr>
-          <tr><td>📆 複習日期</td><td>隔幾天後重做這題</td></tr>
-        </tbody>
-      </table>
+    <h3 style="font-size:1rem;font-weight:700;margin-bottom:8px;">🤖 用 Claude AI 打造你的個人錯題教練</h3>
+    <p class="ai-coach-intro">比表格更聰明——不用自己填欄位，把題目截圖或貼文字給 Claude，AI 幫你讀題、分類、出題複習，還記得你每次的弱點。</p>
+
+    <div class="ai-flow">
+      <div class="ai-flow-step">
+        <div class="ai-flow-icon">📸</div>
+        <div class="ai-flow-label">拍照或貼文字</div>
+        <div class="ai-flow-sub">題目截圖或複製原文</div>
+      </div>
+      <div class="ai-flow-arrow">→</div>
+      <div class="ai-flow-step">
+        <div class="ai-flow-icon">🧠</div>
+        <div class="ai-flow-label">Claude 自動分析</div>
+        <div class="ai-flow-sub">讀懂題目 + 你的思路</div>
+      </div>
+      <div class="ai-flow-arrow">→</div>
+      <div class="ai-flow-step">
+        <div class="ai-flow-icon">🏷️</div>
+        <div class="ai-flow-label">分類 + 教訓</div>
+        <div class="ai-flow-sub">A/B/C/D 類、陷阱型、守則</div>
+      </div>
+      <div class="ai-flow-arrow">→</div>
+      <div class="ai-flow-step">
+        <div class="ai-flow-icon">🔁</div>
+        <div class="ai-flow-label">出題考你</div>
+        <div class="ai-flow-sub">同結構新題，確認真的學會</div>
+      </div>
     </div>
+
+    <div class="ai-prompts">
+      <div class="ai-prompt-card">
+        <div class="ai-prompt-tag">📸 截圖上傳版</div>
+        <div class="ai-prompt-body">
+          <p class="ai-prompt-label">附上題目截圖，把以下文字貼給 Claude：</p>
+          <pre class="ai-prompt-code">我剛做了一題 SAT Reading，答錯了。截圖如附。
+正確答案是：___
+我選的是：___
+我當時的想法：___
+
+請你：
+1. 判斷我的錯誤類型（A技術／B陷阱／C理解／D時間）
+2. 說明這題觸發了哪種陷阱
+3. 給我一條下次的行動守則
+4. 出一道同類結構的題考我</pre>
+        </div>
+      </div>
+      <div class="ai-prompt-card">
+        <div class="ai-prompt-tag">📋 貼文字版</div>
+        <div class="ai-prompt-body">
+          <p class="ai-prompt-label">把題目、選項、答案一起貼給 Claude：</p>
+          <pre class="ai-prompt-code">以下是我答錯的 SAT Reading 題目：
+
+【段落】
+（貼上原文段落）
+
+【題目 + 選項】
+（貼上題目與 A/B/C/D）
+
+正確答案：___ ｜ 我選的：___
+我的想法：___
+
+請幫我分析錯誤原因、陷阱型、
+行動守則，並出一道類似題考我。</pre>
+        </div>
+      </div>
+    </div>
+
+    <p class="ai-coach-tip">💡 在 <a href="https://claude.ai" target="_blank" rel="noopener" class="ext-link">Claude.ai ↗</a> 建立「SAT 錯題教練」Project，把上方的錯誤分類說明存進 Project Instructions——之後每次 Claude 都記得你的分類系統，不用重新解釋。</p>
 
     <h3 style="font-size:1rem;font-weight:700;margin:24px 0 12px;">間隔重複複習節奏 <a href="https://en.wikipedia.org/wiki/Spaced_repetition" target="_blank" rel="noopener" class="ext-link" style="font-size:0.8rem;font-weight:400;">什麼是間隔重複？ ↗</a></h3>
     <div class="spaced-rep">
