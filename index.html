@@ -682,6 +682,23 @@
       box-shadow: 0 6px 24px rgba(0,0,0,0.35);
     }
 
+    /* ── EXTERNAL LINKS ── */
+    .ext-link {
+      color: var(--blue-mid);
+      text-decoration: none;
+      border-bottom: 1px dotted var(--blue-mid);
+      transition: border-bottom-style 0.15s;
+    }
+    .ext-link:hover { border-bottom-style: solid; }
+    body.dark .ext-link { color: #60a5fa; border-bottom-color: #60a5fa; }
+    .res-card h3 a {
+      color: var(--blue-dark);
+      text-decoration: none;
+    }
+    .res-card h3 a:hover { text-decoration: underline; color: var(--blue-mid); }
+    body.dark .res-card h3 a { color: #e2e8f0; }
+    body.dark .res-card h3 a:hover { color: #60a5fa; }
+
     /* ── DARK MODE ── */
     body.dark {
       background: #0f172a;
@@ -1206,7 +1223,7 @@
         <div class="time-track"><div class="time-fill" style="width:100%"></div></div>
         <div class="time-val">90–120秒</div>
       </div>
-      <p style="font-size:0.85rem;color:var(--text-muted);margin-top:16px;">💡 <b>卡住就跳過原則</b>：一題讀了兩遍還不確定 → 用 Bluebook 的 flag 標記，先猜一個，繼續往後，最後剩時間再回來。不確定的決定不要花超過 40 秒。</p>
+      <p style="font-size:0.85rem;color:var(--text-muted);margin-top:16px;">💡 <b>卡住就跳過原則</b>：一題讀了兩遍還不確定 → 用 <a href="https://bluebook.collegeboard.org" target="_blank" rel="noopener" class="ext-link">Bluebook ↗</a> 的 flag 標記，先猜一個，繼續往後，最後剩時間再回來。不確定的決定不要花超過 40 秒。</p>
     </div>
 
   </div>
@@ -1298,7 +1315,7 @@
       </table>
     </div>
 
-    <h3 style="font-size:1rem;font-weight:700;margin:24px 0 12px;">間隔重複複習節奏</h3>
+    <h3 style="font-size:1rem;font-weight:700;margin:24px 0 12px;">間隔重複複習節奏 <a href="https://en.wikipedia.org/wiki/Spaced_repetition" target="_blank" rel="noopener" class="ext-link" style="font-size:0.8rem;font-weight:400;">什麼是間隔重複？ ↗</a></h3>
     <div class="spaced-rep">
       <div class="rep-step">
         <div class="day">做完</div>
@@ -1334,48 +1351,48 @@
         <div class="res-icon" style="background:#fff3cd;">🎯</div>
         <div>
           <span class="res-tag tag-official">官方必用</span>
-          <h3>College Board Bluebook</h3>
-          <p>7 套完整官方數位 SAT 練習測驗，自適應模式，最接近真實考試。<br><b>bluebook.collegeboard.org</b></p>
+          <h3><a href="https://bluebook.collegeboard.org" target="_blank" rel="noopener">College Board Bluebook ↗</a></h3>
+          <p>7 套完整官方數位 SAT 練習測驗，自適應模式，最接近真實考試。</p>
         </div>
       </div>
       <div class="res-card">
         <div class="res-icon" style="background:#d4edda;">📘</div>
         <div>
           <span class="res-tag tag-free">免費</span>
-          <h3>Khan Academy × CollegeBoard</h3>
-          <p>官方合作，使用真題，連接考試成績自動推薦弱點練習。完全免費，效果最好。<br><b>khanacademy.org</b></p>
+          <h3><a href="https://www.khanacademy.org/sat" target="_blank" rel="noopener">Khan Academy × CollegeBoard ↗</a></h3>
+          <p>官方合作，使用真題，連接考試成績自動推薦弱點練習。完全免費，效果最好。</p>
         </div>
       </div>
       <div class="res-card">
         <div class="res-icon" style="background:#cce5ff;">📗</div>
         <div>
           <span class="res-tag tag-book">書籍</span>
-          <h3>Erica Meltzer's Reading &amp; Writing</h3>
-          <p>針對 Digital SAT 格式，詳細解析每個答案為什麼對、為什麼錯。深入理解型最推。</p>
+          <h3><a href="https://www.thecriticalreader.com" target="_blank" rel="noopener">Erica Meltzer's Reading &amp; Writing ↗</a></h3>
+          <p>針對 Digital SAT 格式，詳細解析每個答案為什麼對、為什麼錯。深入理解型最推。<br><a href="https://www.amazon.com/dp/0997517891" target="_blank" rel="noopener" class="ext-link">Amazon 購書連結 ↗</a></p>
         </div>
       </div>
       <div class="res-card">
         <div class="res-icon" style="background:#f8d7da;">💻</div>
         <div>
           <span class="res-tag tag-paid">訂閱</span>
-          <h3>UWorld</h3>
-          <p>大量高質量練習題，解析詳細，可按難度和題型分類練習。錯題追蹤內建。<br><b>collegeprep.uworld.com</b></p>
+          <h3><a href="https://collegeprep.uworld.com" target="_blank" rel="noopener">UWorld ↗</a></h3>
+          <p>大量高質量練習題，解析詳細，可按難度和題型分類練習。錯題追蹤內建。</p>
         </div>
       </div>
       <div class="res-card">
         <div class="res-icon" style="background:#e2d9f3;">🐼</div>
         <div>
           <span class="res-tag tag-free">免費</span>
-          <h3>College Panda 部落格</h3>
-          <p>800 分得主 Nielson Phu 的方法論，尤其是「消除錯誤答案的系統性方法」值得一讀。<br><b>thecollegepanda.com</b></p>
+          <h3><a href="https://thecollegepanda.com/the-advanced-guide-to-sat-reading/" target="_blank" rel="noopener">College Panda 部落格 ↗</a></h3>
+          <p>800 分得主 Nielson Phu 的方法論，尤其是「消除錯誤答案的系統性方法」值得一讀。</p>
         </div>
       </div>
       <div class="res-card">
         <div class="res-icon" style="background:#d1ecf1;">🧪</div>
         <div>
           <span class="res-tag tag-free">免費</span>
-          <h3>PrepScholar 文章</h3>
-          <p>多篇由 800 分得主撰寫的策略文，包含 Command of Evidence、Cross-Text 等專題。</p>
+          <h3><a href="https://blog.prepscholar.com/complete-guide-to-sat-reading" target="_blank" rel="noopener">PrepScholar 文章 ↗</a></h3>
+          <p>多篇由 800 分得主撰寫的策略文，包含 <a href="https://blog.prepscholar.com/command-of-evidence-sat-questions" target="_blank" rel="noopener" class="ext-link">Command of Evidence ↗</a>、<a href="https://blog.prepscholar.com/cross-text-connections-sat" target="_blank" rel="noopener" class="ext-link">Cross-Text ↗</a> 等專題。</p>
         </div>
       </div>
     </div>
@@ -1397,7 +1414,7 @@
         <div class="plan-content">
           <h3>🔍 診斷——先弄清楚自己錯在哪</h3>
           <ul>
-            <li>在 Bluebook 完成 1 套完整練習測驗（有計時）</li>
+            <li>在 <a href="https://bluebook.collegeboard.org" target="_blank" rel="noopener" class="ext-link">Bluebook ↗</a> 完成 1 套完整練習測驗（有計時）</li>
             <li>詳細分析所有錯題，建立錯題本</li>
             <li>分類所有錯誤，找出主要弱點題型（通常 2–3 種）</li>
             <li>沒做過診斷就開始刷題，等於瞎打靶</li>
@@ -1456,7 +1473,7 @@
   <p>
     <a href="https://ichentsaitw.github.io/ic-lab/" target="_blank">← 回 IC-LAB</a>
   </p>
-  <p style="margin-top:12px;">資料來源：College Board、PrepScholar、Erica Meltzer、College Panda、UWorld、Reddit r/SAT</p>
+  <p style="margin-top:12px;">資料來源：<a href="https://satsuite.collegeboard.org/digital" target="_blank" rel="noopener" style="color:#94a3b8;">College Board</a>、<a href="https://blog.prepscholar.com/complete-guide-to-sat-reading" target="_blank" rel="noopener" style="color:#94a3b8;">PrepScholar</a>、<a href="https://www.thecriticalreader.com" target="_blank" rel="noopener" style="color:#94a3b8;">Erica Meltzer</a>、<a href="https://thecollegepanda.com" target="_blank" rel="noopener" style="color:#94a3b8;">College Panda</a>、<a href="https://collegeprep.uworld.com" target="_blank" rel="noopener" style="color:#94a3b8;">UWorld</a>、<a href="https://www.reddit.com/r/Sat/" target="_blank" rel="noopener" style="color:#94a3b8;">Reddit r/SAT</a></p>
   <div class="footer-updated">最後更新：2026-04-03</div>
 
   <p style="font-size:11px;color:#aaa;margin-top:8px;">首圖：Tulane Public Relations (CC BY 2.0) via Wikimedia Commons</p>
