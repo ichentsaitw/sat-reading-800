@@ -827,7 +827,7 @@
     <a class="nav-tab" href="#errorlog">錯題本</a>
     <a class="nav-tab" href="#resources">推薦資源</a>
     <a class="nav-tab" href="#plan">備考節奏</a>
-    <button id="theme-toggle" title="切換深色主題">🌙 深色</button>
+    <button id="theme-toggle" title="切換淺色主題">☀️ 淺色</button>
   </div>
 </nav>
 
@@ -1580,8 +1580,8 @@
     localStorage.setItem('theme', isDark ? 'dark' : 'light');
     applyTheme(isDark);
   });
-  // 初始化
-  applyTheme(localStorage.getItem('theme') === 'dark');
+  // 初始化：預設深色，除非使用者曾手動切到淺色
+  applyTheme(localStorage.getItem('theme') !== 'light');
 
   // ── Question Type Toggle ──
   function toggleCard(card) {
